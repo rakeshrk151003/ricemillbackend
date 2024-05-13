@@ -33,7 +33,7 @@ app.post('/api/submitForm', upload.none(), async (req, res) => {
   try {
     const client = await pool.connect();
     const result = await client.query(
-      'INSERT INTO form_data (name, phone, locality, ricebags, message) VALUES ($1, $2, $3, $4, $5)',
+      'INSERT INTO form_data VALUES ($1, $2, $3, $4, $5)',
       [name, phone, locality, ricebags, message]
     );
     client.release();
