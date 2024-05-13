@@ -29,6 +29,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // Endpoint to handle form submissions from contact form
 app.post('/api/submitForm', upload.none(), async (req, res) => {
   const { name, phone, locality, ricebags, message } = req.body;
+  console.log( name, phone, locality, ricebags, message);
   try {
     const client = await pool.connect();
     const result = await client.query(
